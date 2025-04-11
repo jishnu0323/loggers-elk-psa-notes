@@ -119,6 +119,26 @@ logging.file.name=app.log
 Example 1:
 #####################
 
+package com.demo;
+
+import com.demo.service.OrderService;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+
+@SpringBootApplication
+public class DemoApplication {
+
+	public static void main(String[] args) {
+
+		ConfigurableApplicationContext ctx = SpringApplication.run(DemoApplication.class, args);
+		OrderService order = ctx.getBean(OrderService.class);
+		order.processOrder(1);
+	}
+
+}
+
+- - - - -- - - -- -- - - - - - - - - - - - - - - -- -  - - - -  --------------------------------------------
 import lombok.extern.slf4j.Slf4j;  //Perform import from slf4J
 import org.springframework.stereotype.Service;
 
